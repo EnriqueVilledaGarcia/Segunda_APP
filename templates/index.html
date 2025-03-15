@@ -13,12 +13,12 @@
 
 <table class="table table-bordered">
     <thead>
-        <th>No. Control</th>
-        <th>Nombre</th>
-        <th>Apellido Paterno</th>
-        <th>Apellido Materno</th>
-        <th>Semestre</th>
-        <th>Acciones</th>
+        <th class="text-center">No. Control</th>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Apellido Paterno</th>
+        <th class="text-center">Apellido Materno</th>
+        <th class="text-center">Semestre</th>
+        <th class="text-center">Acciones</th>
     </thead>
     <tbody>
         {% for alumno in alumnos %}
@@ -28,13 +28,13 @@
             <td>{{ alumno.ap_paterno }}</td>
             <td>{{ alumno.ap_materno }}</td>
             <td>{{ alumno.semestre }}</td>
-            <td>
+            <td class="d-flex justify-content-center">
                 <!-- Botón para eliminar con icono -->
-                <a href="{{ url_for('delete_estudiante', no_control=alumno.no_control) }}" class="btn btn-danger">
+                <a href="{{ url_for('delete_estudiante', no_control=alumno.no_control) }}" class="btn btn-danger mx-2">
                     <i class="fas fa-trash-alt"></i> Eliminar
                 </a>
                 <!-- Botón para modificar con icono -->
-                <a href="{{ url_for('update_estudiante', no_control=alumno.no_control) }}" class="btn btn-warning">
+                <a href="{{ url_for('update_estudiante', no_control=alumno.no_control) }}" class="btn btn-warning mx-2">
                     <i class="fas fa-edit"></i> Modificar
                 </a>
             </td>
