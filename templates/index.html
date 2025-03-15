@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+
+{% block title %} Lista de alumnos {% endblock %}
+
+{% block content %}
+
+<!-- Botón para agregar un nuevo alumno -->
+<a href="{{ url_for('create_alumnos')}}" class="btn btn-success">
+    <i class="fas fa-user-plus"></i> Agregar
+</a>
+
+<br><br>
+
+<table class="table table-bordered">
+    <thead>
+        <th>No. Control</th>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Semestre</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos %}
+        <tr>
+            <td>{{ alumno.no_control }}</td>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.ap_paterno }}</td>
+            <td>{{ alumno.ap_materno }}</td>
+            <td>{{ alumno.semestre }}</td>
+            <td>
+                <!-- Botón para eliminar con icono -->
+                <a href="{{ url_for('delete_estudiante', no_control=alumno.no_control) }}" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                </a>
+                <!-- Botón para modificar con icono -->
+                <a href="{{ url_for('update_estudiante', no_control=alumno.no_control) }}" class="btn btn-warning">
+                    <i class="fas fa-edit"></i> Modificar
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Enlazar Font Awesome si no está ya incluido -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+{% endblock %}
+
+
+
+
+
+
